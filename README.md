@@ -71,4 +71,6 @@ Got an idea to make the jungle even wilder? Open an issue or submit a pull reque
 
 ---
 
-*Created with 💚 by [Your Name]*
+<div align="center">
+  <sub>Built with ❤️ by <a href="https://github.com/naitik09090">Naitik</a></sub>
+</div>
