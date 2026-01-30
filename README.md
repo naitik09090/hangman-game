@@ -71,6 +71,62 @@ Got an idea to make the jungle even wilder? Open an issue or submit a pull reque
 
 ---
 
+## 📝 add words in the word list
+
+  "jungle",
+  "tiger",
+  "snake",
+  "monkey",
+  "parrot",
+  "amazon",
+  "safari",
+  "bamboo",
+  "canopy",
+  "panther",
+  "river",
+  "jaguar",
+  "lizard",
+  "forest",
+  "gorilla",
+  "chimpanzee",
+  "orangutan",
+  "toucan",
+  "sloth",
+  "piranha",
+  "anaconda",
+  "crocodile",
+  "alligator",
+  "lemur",
+  "tapir",
+  "capybara",
+  "macaw",
+  "tarantula",
+  "scorpion",
+  "butterfly",
+  "dragonfly",
+  "chameleon",
+  "iguana",
+  "leopard",
+  "cougar",
+  "ocelot",
+  "vine",
+  "fern",
+  "orchid",
+  "mahogany",
+  "moss",
+  "swamp",
+  "marsh",
+  "waterfall",
+  "tropical",
+  "wilderness",
+  "wildlife",
+  "exploration",
+  "adventure",
+  "mosquito",
+  "beetle"
+
+---
+
 <div align="center">
   <sub>Built with ❤️ by <a href="https://github.com/naitik09090">Naitik</a></sub>
 </div>
