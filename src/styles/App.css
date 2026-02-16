@@ -694,7 +694,9 @@ button:active {
 .hint-container {
   /* Desktop: Position absolutely to ensure visibility above word */
   position: absolute;
-  bottom: 80px;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
   /* Above the word which is at bottom: 20px */
   text-align: center;
   z-index: 5;
@@ -737,7 +739,7 @@ button:active {
   .hint-container {
     position: relative;
     bottom: auto;
-    margin-top: 20px;
+    margin-top: 30px;
   }
 
   .hint-text {
