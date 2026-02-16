@@ -137,7 +137,19 @@ function App() {
           }
           e.target.value = "";
         }}
-        style={{ opacity: 0, position: 'absolute', top: '-1000px' }}
+        style={{
+          opacity: 0,
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '1px',
+          height: '1px',
+          padding: 0,
+          margin: 0,
+          border: 'none',
+          outline: 'none',
+          pointerEvents: 'none'
+        }}
         autoCapitalize="none"
         autoComplete="off"
         autoCorrect="off"

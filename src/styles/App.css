@@ -322,7 +322,7 @@ button:active {
   /* Word Click Area - The "Touch Zone" */
   .word-click-wrapper {
     width: 100%;
-    padding: 30px 10px 40px;
+    padding: 70px 10px;
     /* Generous touch padding */
     margin-top: auto;
     cursor: text;
