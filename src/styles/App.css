@@ -610,8 +610,13 @@ button:active {
 
 .popup h2 {
   font-family: 'Luckiest Guy', cursive;
-  font-size: 3rem;
-  margin-bottom: 10px;
+  font-size: 2.5rem;
+  /* Slightly reduced to fit better */
+  margin-bottom: 15px;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.1;
 }
 
 .win-animation {
@@ -682,4 +687,59 @@ button:active {
 
 .notification-container.show {
   transform: translateY(-90px);
+}
+
+/* Hint Section */
+.hint-container {
+  margin-top: 85px;
+  /* Spacing from word */
+  text-align: center;
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.hint-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  color: #fbbf24;
+  /* Amber/Gold */
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  animation: fadeInHint 0.8s ease-out;
+}
+
+@keyframes fadeInHint {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .hint-container {
+    margin-top: 20px;
+  }
+
+  .hint-text {
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    background: rgba(0, 0, 0, 0.7);
+    max-width: 90%;
+  }
 }
