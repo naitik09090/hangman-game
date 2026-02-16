@@ -29,7 +29,7 @@ const Figure = ({ wrongLetters }) => {
     "Q 160 40 140 75"; // Coil down to head
 
   return (
-    <svg height="250" width="200" className={`figure-container ${errors === 6 ? "lost" : ""}`}>
+    <svg viewBox="0 0 200 250" className={`figure-container ${errors === 6 ? "lost" : ""}`}>
       {/* <!-- Gallows Structure --> */}
       <g className="gallows" strokeLinecap="round">
         <line x1="60" y1="20" x2="140" y2="20" stroke="#5d4037" strokeWidth="4" />

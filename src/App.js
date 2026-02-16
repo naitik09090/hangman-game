@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Header from "./components/Header";
 import Figure from "./components/Figure";
 import WrongLetters from "./components/WrongLetters";
@@ -68,25 +68,31 @@ function App() {
   const [correctLetters, setCorrectLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
   const [showNotification, setShowNotification] = useState(false);
+  const inputRef = useRef(null);
+
+  const processLetter = (letter) => {
+    if (playable) {
+      if (selectedWord.includes(letter)) {
+        if (!correctLetters.includes(letter)) {
+          setCorrectLetters((currentLetters) => [...currentLetters, letter]);
+        } else {
+          show(setShowNotification);
+        }
+      } else {
+        if (!wrongLetters.includes(letter)) {
+          setWrongLetters((currentLetters) => [...currentLetters, letter]);
+        } else {
+          show(setShowNotification);
+        }
+      }
+    }
+  };
 
   useEffect(() => {
     const handleKeydown = (event) => {
       const { key, keyCode } = event;
       if (playable && keyCode >= 65 && keyCode <= 90) {
-        const letter = key.toLowerCase();
-        if (selectedWord.includes(letter)) {
-          if (!correctLetters.includes(letter)) {
-            setCorrectLetters((currentLetters) => [...currentLetters, letter]);
-          } else {
-            show(setShowNotification);
-          }
-        } else {
-          if (!wrongLetters.includes(letter)) {
-            setWrongLetters((currentLetters) => [...currentLetters, letter]);
-          } else {
-            show(setShowNotification);
-          }
-        }
+        processLetter(key.toLowerCase());
       }
     };
     window.addEventListener("keydown", handleKeydown);
@@ -111,8 +117,32 @@ function App() {
       <div className="game-container">
         <Figure wrongLetters={wrongLetters} />
         <WrongLetters wrongLetters={wrongLetters} />
-        <Word selectedWord={selectedWord} correctLetters={correctLetters} />
+
+        {/* Clickable Word Container to trigger Mobile Keyboard */}
+        <div onClick={() => inputRef.current.focus()} className="word-click-wrapper">
+          <Word selectedWord={selectedWord} correctLetters={correctLetters} />
+        </div>
+
+        {/* <p className="mobile-only-instruction">Tap here to type</p> */}
       </div>
+
+      {/* Hidden Input for Mobile Keyboard */}
+      <input
+        type="text"
+        ref={inputRef}
+        onChange={(e) => {
+          const char = e.target.value.slice(-1);
+          if (/^[a-zA-Z]$/.test(char)) {
+            processLetter(char.toLowerCase());
+          }
+          e.target.value = "";
+        }}
+        style={{ opacity: 0, position: 'absolute', top: '-1000px' }}
+        autoCapitalize="none"
+        autoComplete="off"
+        autoCorrect="off"
+      />
+
       <Popup correctLetters={correctLetters} wrongLetters={wrongLetters} selectedWord={selectedWord} setPlayable={setPlayable} playAgain={playAgain} />
       <Notification showNotification={showNotification} />
     </>
