@@ -690,11 +690,13 @@ button:active {
 }
 
 /* Hint Section */
+/* Hint Section */
 .hint-container {
-  margin-top: 85px;
-  /* Spacing from word */
+  /* Desktop: Position absolutely to ensure visibility above word */
+  position: absolute;
+  bottom: 80px;
+  /* Above the word which is at bottom: 20px */
   text-align: center;
-  position: relative;
   z-index: 5;
   width: 100%;
   display: flex;
@@ -733,6 +735,8 @@ button:active {
 
 @media (max-width: 600px) {
   .hint-container {
+    position: relative;
+    bottom: auto;
     margin-top: 20px;
   }
 
