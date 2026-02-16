@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import Header from "./components/Header";
 import Figure from "./components/Figure";
 import WrongLetters from "./components/WrongLetters";
@@ -70,7 +70,7 @@ function App() {
   const [showNotification, setShowNotification] = useState(false);
   const inputRef = useRef(null);
 
-  const processLetter = (letter) => {
+  const processLetter = useCallback((letter) => {
     if (playable) {
       if (selectedWord.includes(letter)) {
         if (!correctLetters.includes(letter)) {
@@ -86,7 +86,7 @@ function App() {
         }
       }
     }
-  };
+  }, [correctLetters, wrongLetters, playable]);
 
   useEffect(() => {
     const handleKeydown = (event) => {
@@ -98,7 +98,7 @@ function App() {
     window.addEventListener("keydown", handleKeydown);
 
     return () => window.removeEventListener("keydown", handleKeydown);
-  }, [correctLetters, wrongLetters, playable]);
+  }, [playable, processLetter]);
 
   function playAgain() {
     setPlayable(true);
